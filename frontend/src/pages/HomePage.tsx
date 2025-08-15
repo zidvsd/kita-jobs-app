@@ -1,10 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "../assets/react.svg";
 import appLogo from "/app-logo.svg";
+import LogOutButton from "../components/buttons/LogOutButton";
+interface User {
+  name: string;
+  email: string;
+  role: string;
+}
+
 const HomePage = () => {
+  const [data, setData] = useState<User[] | null>(null);
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/api/users");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []); // run once on mount
   return (
     <div className="flex flex-col justify-center custom-container">
+      <div className="flex flex-row">
+        {data?.map((user) => (
+          <div className="flex flex-col">
+            <h1>{user.name}</h1>
+            <h1>{user.email}</h1>
+            <h1>{user.role}</h1>
+          </div>
+        ))}
+      </div>
       <div className="flex flex-row justify-center">
         <a href="https://vite.dev" target="_blank">
           <img src={appLogo} className="logo" alt="Vite logo" />
@@ -26,6 +56,8 @@ const HomePage = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <LogOutButton />
     </div>
   );
 };

@@ -5,14 +5,14 @@ import jwt from "jsonwebtoken";
 const JWT_KEY = process.env.JWT_KEY;
 
 export const signUp = async (req: Request, res: Response) => {
-  const { email, password, role, name } = req.body;
+  const { username, email, password, role } = req.body;
 
   const passwordHash = await bcrypt.hash(password, 10);
   const newUser = new User({
+    username,
     email,
     passwordHash,
     role,
-    name,
     skills: [],
     profile: {},
   });

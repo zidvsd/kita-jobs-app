@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
+import Logo from "../components/Logo";
 const AuthLayout = () => {
   return (
     <div className="h-screen w-full custom-container flex flex-col items-center justify-center">
-      <h1>Auth layout</h1>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <Logo textSize="2xl" textIcon={12} />
+      <main className="w-full">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 };
