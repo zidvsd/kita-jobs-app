@@ -30,3 +30,7 @@
 .hover-light {
   @apply duration-300 transition-all ease-in-out hover:text-primary
 }
+
+.hero-bg-gradient {
+  @apply bg-gradient-to-r from-[#0057B8] to-[#048AD1]
+}

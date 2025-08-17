@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import reactLogo from "../assets/react.svg";
-import appLogo from "/app-logo.svg";
+import BrowseJobs from "../components/buttons/BrowseJobs";
+import PostJob from "../components/buttons/PostJob";
 import LogOutButton from "../components/buttons/LogOutButton";
 import { useAuthStore } from "../stores/useAuthStore";
 interface User {
@@ -12,7 +12,6 @@ const HomePage = () => {
   const { token } = useAuthStore();
 
   const [data, setData] = useState<User[] | null>(null);
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,39 +26,19 @@ const HomePage = () => {
     fetchData();
   }, []); // run once on mount
   return (
-    <div className="flex flex-col justify-center custom-container">
-      <div className="flex flex-col">
-        {data?.map((user) => (
-          <div className="flex flex-col">
-            <h1>{user.name}</h1>
-            <h1>{user.email}</h1>
-            <h1>{user.role}</h1>
-          </div>
-        ))}
+    <section className="py-48 hero-bg-gradient">
+      <div className=" items-center text-center gap-12 text-white flex flex-col justify-center custom-container">
+        <h1 className="lg:text-5xl text-4xl font-bold">Find Your Dream Job</h1>
+        <h1 className="text-2xl font-light">
+          Discover opportunities that match your skiils and passion
+        </h1>
+        <div className="w-full flex flex-row justify-center items-center gap-x-7">
+          <BrowseJobs />
+          <PostJob />
+        </div>
+        {token ? <LogOutButton /> : null}
       </div>
-      <div className="flex flex-row justify-center">
-        <a href="https://vite.dev" target="_blank">
-          <img src={appLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p className="text-accent ">hi</p>
-      <h1 className="text-tertiary text-xl font-inter">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      {token ? <LogOutButton /> : null}
-    </div>
+    </section>
   );
 };
 
