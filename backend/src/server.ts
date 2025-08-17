@@ -7,7 +7,6 @@ import authRoutes from "./routes/AuthRoutes.js";
 import { configDotenv } from "dotenv";
 configDotenv();
 const app = express();
-const port: number = 8000;
 
 connectDB();
 app.use(cors());
@@ -18,7 +17,7 @@ app.use("/api/users", userRoutes);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`Server running at port:${port}`);
+const PORT: number = Number(process.env.PORT) || 8000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running at port:${PORT}`);
 });

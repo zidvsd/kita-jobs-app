@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useAuthStore } from "../stores/useAuthStore";
+const API_URL = import.meta.env.VITE_API_URL;
 const api = axios.create({
-  baseURL: "http://localhost:8000/api",
-  timeout: 1000,
+  baseURL: `${API_URL}/api`,
+  timeout: 5000,
 });
 
 export const signInUser = async () => {
   const { username, email, password, role } = useAuthStore.getState();
   try {
-    const res = await api.post("/auth/signup", {
+    const res = await api.post("auth/signup", {
       username,
       email,
       password,

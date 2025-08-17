@@ -61,7 +61,7 @@ const SignUpForm = () => {
               <input
                 id="username"
                 type={showUserNameCapsLock ? "text" : "text"}
-                placeholder="guest_account"
+                placeholder="e.g., guest_account"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 onKeyUp={(e) => handleCapsLock(e, setUserNameShowCapsLock)}
@@ -96,7 +96,7 @@ const SignUpForm = () => {
               <input
                 id="email"
                 type={showEmailCapsLock ? "text" : "email"}
-                placeholder="guest_account@gmail.com"
+                placeholder="e.g., guest_account@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyUp={(e) => handleCapsLock(e, setEmailShowCapsLock)}
@@ -131,7 +131,7 @@ const SignUpForm = () => {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="xxxxxxxx"
+                placeholder="e.g., ********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="block min-w-0 grow bg-transparent py-2 pr-10 pl-1 text-black placeholder:text-neutralCustomLight focus:outline-none rounded-md"

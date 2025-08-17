@@ -30,6 +30,8 @@ const router = createBrowserRouter([
       { path: "/jobs/:category/:id", element: <JobsFilterPage /> },
       { path: "/users", element: <UsersListPage /> },
       { path: "/user/:id", element: <UserDetailsPage /> },
+      { path: "/profile", element: <ProfilePage /> },
+      { path: "/post-job", element: <PostJobPage /> },
     ],
   },
   {

@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import reactLogo from "../assets/react.svg";
 import appLogo from "/app-logo.svg";
 import LogOutButton from "../components/buttons/LogOutButton";
+import { useAuthStore } from "../stores/useAuthStore";
 interface User {
   name: string;
   email: string;
   role: string;
 }
-
 const HomePage = () => {
+  const { token } = useAuthStore();
+
   const [data, setData] = useState<User[] | null>(null);
   const [count, setCount] = useState(0);
 
@@ -26,7 +28,7 @@ const HomePage = () => {
   }, []); // run once on mount
   return (
     <div className="flex flex-col justify-center custom-container">
-      <div className="flex flex-row">
+      <div className="flex flex-col">
         {data?.map((user) => (
           <div className="flex flex-col">
             <h1>{user.name}</h1>
@@ -56,8 +58,7 @@ const HomePage = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-
-      <LogOutButton />
+      {token ? <LogOutButton /> : null}
     </div>
   );
 };
