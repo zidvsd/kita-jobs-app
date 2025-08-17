@@ -12,26 +12,10 @@ import { Link } from "react-router-dom";
 import SignUpButton from "./buttons/SignUpButton";
 import LoginButton from "./buttons/LoginButton";
 import { useState, useEffect } from "react";
-
+import useResponsiveToggle from "../hooks/useResponsiveToggle";
 const Navbar = () => {
   const { token } = useAuthStore();
-  const [isMenuToggle, setIsMenuToggle] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const windowSize = window.innerWidth;
-      if (windowSize >= 768) {
-        setIsMenuToggle(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+  const { isToggled, setIsToggled } = useResponsiveToggle(768);
   return (
     <div className="custom-container w-full flex flex-col gap-y-8 md:flex-row md:items-center md:justify-between text-customNeutral">
       {/* Left: Logo + Mobile Menu Button */}
@@ -40,7 +24,7 @@ const Navbar = () => {
           <Logo textSize="3xl" textIcon={12} />
         </Link>
         <AlignJustify
-          onClick={() => setIsMenuToggle(!isMenuToggle)}
+          onClick={() => setIsToggled(!isToggled)}
           className="cursor-pointer md:hidden"
         />
       </div>
@@ -48,7 +32,7 @@ const Navbar = () => {
       {/* Middle: Search Bar */}
       <div
         className={`${
-          isMenuToggle ? "flex" : "hidden"
+          isToggled ? "flex" : "hidden"
         } md:flex justify-center md:w-[320px] md:max-w-[320px]  lg:max-w-md xl:max-w-lg md:flex-1`}
       >
         <SearchBar />
@@ -57,7 +41,7 @@ const Navbar = () => {
       {/* Right: Nav Links */}
       <div
         className={`${
-          isMenuToggle ? "flex" : "hidden"
+          isToggled ? "flex" : "hidden"
         } md:flex flex-row items-center justify-between md:justify-end gap-8 md:gap-8 lg:gap-10 w-full md:w-auto`}
       >
         <Link

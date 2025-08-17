@@ -5,7 +5,6 @@ import SignInPage from "../pages/SignInPage";
 import ProfilePage from "../pages/ProfilePage";
 import JobsListPage from "../pages/JobsListPage";
 import JobDetailsPage from "../pages/JobDetailsPage";
-import JobsFilterPage from "../pages/JobsFilterPage";
 import PostJobPage from "../pages/PostJobPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import ProtectedRoute from "./ProtectedRoute";
@@ -26,8 +25,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/jobs", element: <JobsListPage /> },
-      { path: "/job/:id", element: <JobDetailsPage /> },
-      { path: "/jobs/:category/:id", element: <JobsFilterPage /> },
+      { path: "/jobs/view/:id", element: <JobDetailsPage /> },
       { path: "/users", element: <UsersListPage /> },
       { path: "/user/:id", element: <UserDetailsPage /> },
       { path: "/profile", element: <ProfilePage /> },
