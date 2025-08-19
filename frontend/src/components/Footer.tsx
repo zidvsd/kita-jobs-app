@@ -41,7 +41,7 @@ const Footer = () => {
             <h3 className="text-sm font-bold text-black">For Job Seekers</h3>
             <ul className="mt-4 space-y-3 text-sm text-customNeutral">
               <li>
-                <Link  className="hover-light" to="/jobs">
+                <Link className="hover-light" to="/jobs">
                   Browse Jobs
                 </Link>
               </li>
@@ -124,11 +124,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="py-16">
-          <p className="text-center text-xs text-customNeutral">
-            © 2025 KitaJobs. All rights reserved.
-          </p>
-        </div>
+      </div>
+      <div className="pt-8">
+        <p className="text-center text-xs text-customNeutral">
+          © 2025 KitaJobs. All rights reserved.
+        </p>
       </div>
     </footer>
   );

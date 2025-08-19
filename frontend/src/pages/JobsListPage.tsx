@@ -1,5 +1,7 @@
+import React from "react";
+
 const JobsListPage = () => {
-  return <div>JobsListPage</div>;
+  return <div></div>;
 };
 
 export default JobsListPage;

@@ -31,6 +31,10 @@
   @apply duration-300 transition-all ease-in-out hover:text-primary
 }
 
+.hover-opacity {
+  @apply duration-300 transition-all ease-in-out hover:opacity-75
+}
+
 .hero-bg-gradient {
   @apply bg-gradient-to-r from-[#0057B8] to-[#048AD1]
 }

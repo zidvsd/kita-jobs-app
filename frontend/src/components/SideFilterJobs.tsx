@@ -21,98 +21,100 @@ const SideFilterJobs = ({ isToggled }: any) => {
   };
 
   return (
-    <aside
-      className={`
+    <>
+      <aside
+        className={`
         p-4 space-y-6
         w-full xl:w-auto
-        ${isToggled ? "fixed top-0 left-0 h-full bg-white z-50 overflow-auto" : ""}
+        ${isToggled ? " h-full bg-white z-50 overflow-auto" : ""}
       `}
-    >
-      {/* Filter Header */}
-      <h2 className="font-bold text-2xl text-center xl:text-left mb-4">
-        Filter
-      </h2>
+      >
+        {/* Filter Header */}
+        <h2 className="font-bold text-2xl text-center xl:text-left mb-4">
+          Filter
+        </h2>
 
-      <div className="flex flex-col md:grid md:grid-cols-3 gap-6 xl:flex">
-        {/* Job Type */}
-        <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
-          <h3 className="font-semibold mb-2">Job Type</h3>
-          {["Full-time", "Part-time", "Contract", "Remote"].map((type) => (
-            <label key={type} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={filters.jobType.includes(type)}
-                onChange={() => handleCheckboxChange("jobType", type)}
-                className="accent-primary"
-              />
-              <span>{type}</span>
-            </label>
-          ))}
-        </div>
-
-        {/* Experience Level */}
-        <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
-          <h3 className="font-semibold mb-2">Experience Level</h3>
-          {["Entry Level", "Mid Level", "Senior Level", "Executive"].map(
-            (level) => (
-              <label key={level} className="flex items-center gap-2">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 xl:flex">
+          {/* Job Type */}
+          <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
+            <h3 className="font-semibold mb-2">Job Type</h3>
+            {["Full-time", "Part-time", "Contract", "Remote"].map((type) => (
+              <label key={type} className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={filters.experience.includes(level)}
-                  onChange={() => handleCheckboxChange("experience", level)}
+                  checked={filters.jobType.includes(type)}
+                  onChange={() => handleCheckboxChange("jobType", type)}
                   className="accent-primary"
                 />
-                <span>{level}</span>
+                <span>{type}</span>
               </label>
-            ),
-          )}
-        </div>
+            ))}
+          </div>
 
-        {/* Company Size */}
-        <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
-          <h3 className="font-semibold mb-2">Company Size</h3>
-          {[
-            "Startup (1-50)",
-            "Small (51-200)",
-            "Medium (201-1000)",
-            "Large (1000+)",
-          ].map((size) => (
-            <label key={size} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={filters.companySize.includes(size)}
-                onChange={() => handleCheckboxChange("companySize", size)}
-                className="accent-primary"
-              />
-              <span>{size}</span>
-            </label>
-          ))}
-        </div>
+          {/* Experience Level */}
+          <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
+            <h3 className="font-semibold mb-2">Experience Level</h3>
+            {["Entry Level", "Mid Level", "Senior Level", "Executive"].map(
+              (level) => (
+                <label key={level} className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={filters.experience.includes(level)}
+                    onChange={() => handleCheckboxChange("experience", level)}
+                    className="accent-primary"
+                  />
+                  <span>{level}</span>
+                </label>
+              ),
+            )}
+          </div>
 
-        {/* Salary Range */}
-        <div className="md:col-span-3 bg-gray-50 p-4 rounded-md shadow-sm space-y-2 flex flex-col items-center">
-          <h3 className="font-semibold mb-2">Salary Range</h3>
-          <input
-            type="range"
-            min={30000}
-            max={150000}
-            step={5000}
-            value={filters.salaryRange[0]}
-            onChange={(e) =>
-              setFilters((prev) => ({
-                ...prev,
-                salaryRange: [Number(e.target.value), prev.salaryRange[1]],
-              }))
-            }
-            className="w-full md:w-2/3 accent-primary"
-          />
-          <div className="flex flex-row justify-between w-full md:w-2/3 text-sm">
-            <span>${filters.salaryRange[0] / 1000}k</span>
-            <span>${filters.salaryRange[1] / 1000}k</span>
+          {/* Company Size */}
+          <div className="bg-gray-50 p-4 rounded-md shadow-sm space-y-2">
+            <h3 className="font-semibold mb-2">Company Size</h3>
+            {[
+              "Startup (1-50)",
+              "Small (51-200)",
+              "Medium (201-1000)",
+              "Large (1000+)",
+            ].map((size) => (
+              <label key={size} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={filters.companySize.includes(size)}
+                  onChange={() => handleCheckboxChange("companySize", size)}
+                  className="accent-primary"
+                />
+                <span>{size}</span>
+              </label>
+            ))}
+          </div>
+
+          {/* Salary Range */}
+          <div className="md:col-span-3 bg-gray-50 p-2 rounded-md shadow-sm space-y-2 flex flex-col items-center">
+            <h3 className="font-semibold mb-2">Salary Range</h3>
+            <input
+              type="range"
+              min={30000}
+              max={150000}
+              step={5000}
+              value={filters.salaryRange[0]}
+              onChange={(e) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  salaryRange: [Number(e.target.value), prev.salaryRange[1]],
+                }))
+              }
+              className="w-full md:w-2/3 accent-primary"
+            />
+            <div className="flex flex-row justify-between w-full md:w-2/3 text-sm">
+              <span>${filters.salaryRange[0] / 1000}k</span>
+              <span>${filters.salaryRange[1] / 1000}k</span>
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 
