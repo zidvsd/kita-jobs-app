@@ -105,7 +105,7 @@ const SideFilterJobs = ({ isToggled }: any) => {
                   salaryRange: [Number(e.target.value), prev.salaryRange[1]],
                 }))
               }
-              className="w-full md:w-2/3 accent-primary"
+              className="w-full md:w-2/3 accent-primary hover:accent-secondary hover-utility active:accent-primary"
             />
             <div className="flex flex-row justify-between w-full md:w-2/3 text-sm">
               <span>${filters.salaryRange[0] / 1000}k</span>

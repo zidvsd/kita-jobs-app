@@ -22,7 +22,7 @@ const SkeletonCard = () => (
 const HomePage = () => {
   const { isToggled, setIsToggled } = useResponsiveToggle(1440);
   const { token } = useAuthStore();
-
+  const dropDownFilters = ["Newest First", "Oldest First", "Most Relevant"];
   // use custom fetch hook
   const { data, loading, error, fetchData } = useFetch<any[]>();
   const [sortOrder, setSortOrder] = useState("Newest First");
@@ -50,7 +50,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="grid gap-8 grid-cols-1 xl:grid-cols-[20%_80%] custom-container">
+      <section className="grid gap-8  grid-cols-1 xl:grid-cols-[20%_80%] custom-container">
         {/* Sidebar - only visible on XL screens */}
         <div className="hidden xl:flex order-1 xl:order-0">
           <SideFilterJobs isToggled={isToggled} />
@@ -62,7 +62,7 @@ const HomePage = () => {
             <h1 className="font-bold text-2xl">Latest Job Openings</h1>
             <div className="flex flex-row justify-between w-full items-center">
               <p className="text-customNeutral">
-                {data ? data.length : 0} jobs
+                {data ? data.length : 0} jobs found
               </p>
               <button className="text-lg flex flex-row gap-x-8 cursor-pointer">
                 <span>{sortOrder}</span>

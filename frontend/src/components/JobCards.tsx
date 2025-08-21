@@ -25,7 +25,7 @@ const JobCards = ({ jobs }: { jobs: Job[] }) => {
   };
 
   return (
-    <div>
+    <div className="mt-4">
       <h1 className="text-xl font-bold mb-4">Job Listings</h1>
       <ul className="space-y-4">
         {jobs.map((job) => {
