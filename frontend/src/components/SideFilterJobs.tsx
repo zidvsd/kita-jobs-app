@@ -26,7 +26,7 @@ const SideFilterJobs = ({ isToggled }: any) => {
         className={`
         p-4 space-y-6
         w-full xl:w-auto
-        ${isToggled ? " h-full bg-white z-50 overflow-auto" : ""}
+        ${isToggled ? " h-full bg-white  overflow-auto" : ""}
       `}
       >
         {/* Filter Header */}

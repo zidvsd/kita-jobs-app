@@ -24,6 +24,21 @@ const SignUpForm = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log({ username, email, password });
+    if (!username.trim()) {
+      toast.error("Username is required");
+      return;
+    }
+
+    if (!email.trim()) {
+      toast.error("Email is required");
+      return;
+    }
+
+    if (!password.trim()) {
+      toast.error("Password is required");
+      return;
+    }
+
     try {
       const data = await signInUser();
       toast.success("You have successfully created an account!");

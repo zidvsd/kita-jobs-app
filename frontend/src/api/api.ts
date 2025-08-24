@@ -10,10 +10,12 @@ export const signInUser = async () => {
   const { username, email, password, role } = useAuthStore.getState();
   try {
     const res = await api.post("auth/signup", {
-      username,
       email,
       password,
       role,
+      profile: {
+        username,
+      },
     });
     return res.data;
   } catch (error) {

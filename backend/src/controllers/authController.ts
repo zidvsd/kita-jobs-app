@@ -5,16 +5,17 @@ import jwt from "jsonwebtoken";
 const JWT_KEY = process.env.JWT_KEY;
 
 export const signUp = async (req: Request, res: Response) => {
-  const { username, email, password, role } = req.body;
+  const { email, password, role, profile } = req.body;
 
   const passwordHash = await bcrypt.hash(password, 10);
   const newUser = new User({
-    username,
     email,
     passwordHash,
     role,
     skills: [],
-    profile: {},
+    profile: {
+      username: profile?.username,
+    },
   });
   await newUser.save();
   res.json({ message: "User Created" });
