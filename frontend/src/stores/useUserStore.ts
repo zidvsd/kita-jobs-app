@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 interface WorkExperience {
   jobTitle: string;
   company: string;
@@ -6,21 +7,26 @@ interface WorkExperience {
   endDate: string;
   description: string;
 }
+
 interface Contact {
   phone: string;
   website: string;
   linkedin: string;
   github: string;
 }
+
 interface Earnings {
   totalEarnings: number;
   hourlyRate: number;
   currency: string;
 }
+
 interface Profile {
   username: string;
   about: string;
   contact: Contact;
+  location: string;
+  earnings: Earnings;
   workExperience: WorkExperience[];
 }
 
@@ -63,6 +69,7 @@ export const useUserStore = create<UserState>((set) => ({
       github: "",
       linkedin: "",
     },
+    location: "",
     earnings: {
       totalEarnings: 0,
       hourlyRate: 0,

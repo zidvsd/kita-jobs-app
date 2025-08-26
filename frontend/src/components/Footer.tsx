@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-customNeutral border-t-2">
+    <footer className="border-gray-200 border-t mt-8">
       <div className="w-full custom-container">
         {/* Top */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">

@@ -31,5 +31,5 @@ interface JobStore {
 export const useJobsStore = create<JobStore>((set) => ({
   jobs: [],
   setJobs: (jobs) => set({ jobs }),
-  addJob: (job) => set((state) => ({ jobs: [...state.jobzs, job] })),
+  addJob: (job) => set((state) => ({ jobs: [...state.jobs, job] })),
 }));

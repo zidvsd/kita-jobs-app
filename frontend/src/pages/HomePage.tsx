@@ -11,7 +11,7 @@ import useFetch from "../hooks/useFetch";
 
 // Skeleton UI component
 const SkeletonCard = () => (
-  <div className="p-6 border rounded-2xl shadow-md animate-pulse space-y-4">
+  <div className="p-6 border border-gray-200 rounded-2xl shadow-md animate-pulse space-y-4">
     <div className="h-6 w-1/2 bg-gray-300 rounded"></div>
     <div className="h-4 w-1/3 bg-gray-300 rounded"></div>
     <div className="h-4 w-2/3 bg-gray-300 rounded"></div>
@@ -46,7 +46,6 @@ const HomePage = () => {
             <BrowseJobs />
             <PostJob />
           </div>
-          {token ? <LogOutButton /> : null}
         </div>
       </section>
 

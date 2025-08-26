@@ -91,7 +91,7 @@ const SideFilterJobs = ({ isToggled }: any) => {
           </div>
 
           {/* Salary Range */}
-          <div className="md:col-span-3 bg-gray-50 p-2 rounded-md shadow-sm space-y-2 flex flex-col items-center">
+          <div className="md:col-span-3 bg-gray-50 p-2 xl:py-8 rounded-md shadow-sm space-y-2 flex flex-col items-center">
             <h3 className="font-semibold mb-2">Salary Range</h3>
             <input
               type="range"
@@ -105,7 +105,7 @@ const SideFilterJobs = ({ isToggled }: any) => {
                   salaryRange: [Number(e.target.value), prev.salaryRange[1]],
                 }))
               }
-              className="w-full md:w-2/3 accent-primary hover:accent-secondary hover-utility active:accent-primary"
+              className="w-full md:w-2/3 xl:w-full   accent-primary hover:accent-secondary hover-utility active:accent-primary"
             />
             <div className="flex flex-row justify-between w-full md:w-2/3 text-sm">
               <span>${filters.salaryRange[0] / 1000}k</span>

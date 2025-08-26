@@ -15,7 +15,7 @@ const LogOutButton = () => {
     <Link
       to={"/login"}
       onClick={handleLogOut}
-      className="cursor-pointer bg-primary w-fit text-white flex  flex-row gap-x-2 items-center py-2 px-6  "
+      className="rounded-lg cursor-pointer bg-red-500 hover-utility hover:opacity-80 w-fit text-white flex  flex-row gap-x-2 items-center py-2 px-6  "
     >
       <LogOut />
       <h1>Log out</h1>
