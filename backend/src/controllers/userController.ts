@@ -11,12 +11,12 @@ export const getUsers = async (req: Request, res: Response) => {
 export const getSingleUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const user = await User.findById(id).select("-passwordHash"); // exclude passwordHash
 
     if (!id) {
       return res.status(400).json({ message: "User ID is required" });
     }
 
-    const user = await User.findById(id).select("-passwordHash"); // exclude passwordHash
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });

@@ -4,7 +4,9 @@ import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import { initUser } from "./api/api";
 import { useAuthStore } from "./stores/useAuthStore";
+import useFetch from "./hooks/useFetch";
 const App = () => {
+  const {fetchData} = useFetch()
   const { setToken } = useAuthStore();
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => {
