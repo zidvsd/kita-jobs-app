@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-  <p>
-    Backend (API hosted separately, powered by Node.js + Express + MongoDB).
-  </p>
+ 
   <h1>💼 KitaJobs</h1>
   <p>
     <strong>KitaJobs</strong> is a LinkedIn-inspired full-stack platform built for the 
     <strong>Philippines tech community</strong>. It connects employers, freelancers, 
     and job seekers, offering a secure, scalable space to post jobs, build profiles, 
     and collaborate. The stack includes <strong>React, Vite, Tailwind CSS, Node.js, Express, JWT, and MongoDB</strong>.
+  </p>
+   <p>
+    Backend (API hosted separately, powered by Node.js + Express + MongoDB).
   </p>
   <h2>✨ Features</h2>
   <ul>
