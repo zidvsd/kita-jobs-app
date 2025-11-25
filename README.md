@@ -1,104 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
- 
-  <h1>💼 KitaJobs</h1>
-  <p>
-    <strong>KitaJobs</strong> is a LinkedIn-inspired full-stack platform built for the 
-    <strong>Philippines tech community</strong>. It connects employers, freelancers, 
-    and job seekers, offering a secure, scalable space to post jobs, build profiles, 
-    and collaborate. The stack includes <strong>React, Vite, Tailwind CSS, Node.js, Express, JWT, and MongoDB</strong>.
-  </p>
-   <p>
-    Backend (API hosted separately, powered by Node.js + Express + MongoDB).
-  </p>
-  <h2>✨ Features</h2>
-  <ul>
-    <li><strong>User Accounts</strong>: Secure authentication with JWT, user data stored in MongoDB.</li>
-    <li><strong>Job Listings</strong>: Post, browse, and filter jobs in the Philippine tech industry.</li>
-    <li><strong>Profiles</strong>: Employers and freelancers can create and edit professional profiles.</li>
-    <li><strong>Employer Dashboard</strong>: Manage applicants, review freelancer profiles, and post jobs.</li>
-    <li><strong>Freelancer Tools</strong>: Apply to projects, showcase skills, and manage opportunities.</li>
-    <li><strong>Responsive UI</strong>: Mobile-first design powered by Tailwind CSS.</li>
-    <li><strong>Animations</strong>: Smooth user experience with Framer Motion.</li>
-    <li><strong>Notifications</strong>: Real-time toast notifications for key actions.</li>
-    <li><strong>State Management</strong>: Global state powered by Zustand for scalability.</li>
-  </ul>
-  <h2>⚙️ Tech Stack</h2>
-  <ul>
-    <li><strong>Frontend</strong>: React, Vite, Tailwind CSS, Zustand, Framer Motion</li>
-    <li><strong>Backend</strong>: Node.js, Express.js</li>
-    <li><strong>Database</strong>: MongoDB (cloud-hosted)</li>
-    <li><strong>Authentication</strong>: JWT-based authentication & authorization</li>
-    <li><strong>Deployment</strong>: Vercel (frontend), Render/Heroku/Custom (backend)</li>
-  </ul>
-  <h2>⚙️ Installation</h2>
-  <h3>Prerequisites</h3>
-  <ul>
-    <li>Node.js (v18+)</li>
-    <li>MongoDB Atlas account (or local MongoDB server)</li>
-    <li>NPM, Yarn, or PNPM</li>
-  </ul>
-  <h3>Steps</h3>
-  <ol>
-    <li>
-      Clone the repository:
-      <pre><code>git clone https://github.com/yourusername/kitajobs.git</code></pre>
-    </li>
-    <li>
-      Navigate to frontend:
-      <pre><code>cd frontend</code></pre>
-      Install dependencies:
-      <pre><code>npm install</code></pre>
-    </li>
-    <li>
-      Navigate to backend:
-      <pre><code>cd backend</code></pre>
-      Install dependencies:
-      <pre><code>npm install</code></pre>
-    </li>
-    <li>
-      Add your <code>.env</code> in backend with:
-      <pre><code>
-MONGODB_URI=your-mongodb-connection-string
-JWT_SECRET=your-secret-key
-PORT=5000
-      </code></pre>
-    </li>
-    <li>
-      Start development servers:
-      <pre><code>
-# Frontend
+# KitaJobs
+
+Full-stack job board and community platform for the Philippine tech ecosystem.
+
+<!-- Badges -->
+
+[![Status](https://img.shields.io/badge/status-active-brightgreen)]()
+[![Frontend Version](https://img.shields.io/badge/frontend-v0.0.0-blue)]()
+[![Backend Dependencies](https://img.shields.io/badge/backend-deps-up--to--date-lightgrey)]()
+
+## Table of contents
+
+- [What it does](#what-it-does)
+- [Why it's useful](#why-its-useful)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [Development workflow](#development-workflow)
+- [Project structure & important files](#project-structure--important-files)
+- [Where to get help](#where-to-get-help)
+- [Maintainers & contributing](#maintainers--contributing)
+
+## What it does
+
+KitaJobs is a LinkedIn-style platform where employers, freelancers and job seekers can create profiles, post and browse job listings, and manage applications. The project includes:
+
+- A React + Vite frontend (TypeScript)
+- A Node.js + Express backend (TypeScript) with JWT authentication
+- MongoDB for data persistence
+
+API base path: `/api` (see `backend/src/server.ts`).
+
+## Why it's useful
+
+- Focused job marketplace for tech roles.
+- Ready-to-run full-stack starter: auth, user profiles, job CRUD, and client UI.
+- Modern stack (Vite, React, Tailwind, Zustand) that is easy to extend.
+
+## Tech stack
+
+- Frontend: React, Vite, TypeScript, Tailwind CSS, Zustand, Framer Motion
+- Backend: Node.js, Express, TypeScript, Mongoose, JWT
+- Database: MongoDB (Atlas or local)
+
+## Getting started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm (or yarn/pnpm)
+- MongoDB (Atlas URI or local instance)
+
+### Quick start (development)
+
+1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd kita-jobs-app
+```
+
+2. Backend setup
+
+```powershell
+cd backend
+npm install
+# create a .env file with the following variables (example):
+# MONGODB_URI=your-mongodb-connection-string
+# JWT_SECRET=your-secret-key
+# PORT=8000
 npm run dev
-# Backend
+```
+
+Notes: the backend dev script uses `nodemon` with `tsx` so TypeScript runs directly during development. The compiled production server entry is `dist/server.js` after `npm run build`.
+
+3. Frontend setup
+
+```powershell
+cd frontend
+npm install
 npm run dev
-      </code></pre>
-    </li>
-  </ol>
-  <h2>📖 Usage</h2>
-  <h3>Job Seekers</h3>
-  <p>Create a secure account, build your profile, and browse verified opportunities in the Philippine tech industry.</p>
-  <h3>Employers</h3>
-  <p>Post jobs, manage applicants, and find freelancers through the employer dashboard.</p>
-  <h3>Freelancers</h3>
-  <p>Apply to projects, showcase your skills, and connect with clients.</p>
-  <h2>🤝 Contributing</h2>
-  <p>Contributions are welcome!</p>
-  <ol>
-    <li>Fork the repository.</li>
-    <li>Create a new branch.</li>
-    <li>Implement features or fixes.</li>
-    <li>Test thoroughly.</li>
-    <li>Submit a pull request.</li>
-  </ol>
-  <h2>📬 Contact</h2>
-  <p>
-    For questions or feedback, email me at
-    <a href="mailto:rashidvisda@gmail.com">rashidvisda@gmail.com</a>.
-  </p>
-</body>
-</html>
+```
+
+The frontend dev server runs via Vite (default port shown in terminal, often `5173`).
+
+### Production build & run
+
+```powershell
+# Frontend: produce static assets
+cd frontend
+npm run build
+
+# Backend: compile TypeScript and run built server
+cd ../backend
+npm run build
+npm start
+```
+
+## Development workflow
+
+- Use `npm run dev` in each of `frontend` and `backend` for iterative development.
+- Linting: run `npm run lint` from `frontend`.
+- When adding features, create a new branch, add tests (where applicable), and open a PR.
+
+## Project structure & important files
+
+- `frontend/` — React + Vite client
+  - `src/main.tsx` — app entry (mounts `<App />`)
+  - `src/App.tsx` — top-level routes and layout
+- `backend/` — Express API
+  - `src/server.ts` — server bootstrap and route registration
+  - `src/db.ts` — MongoDB connection helper
+  - `src/controllers/` — request handlers
+  - `src/models/` — Mongoose models (`User`, `Job`)
+  - `src/routes/` — express route definitions
+
+## Where to get help
+
+- Open an issue on the repository (Issues tab).
+- For quick questions or reporting bugs, email: `rashidvisda@gmail.com`.
+
+## Maintainers & contributing
+
+- **Maintainer:** repository owner
+- **Want to contribute?** See [CONTRIBUTING.md](CONTRIBUTING.md) for a short guide on how to file issues, open PRs, and coding conventions.
+
+## Notes & next steps
+
+- This README provides a focused developer onboarding. For deeper API docs or troubleshooting, add a `docs/` folder or a wiki and link it here.
+
+---
+
+If you'd like, I can also:
+
+- add a minimal `CONTRIBUTING.md` (created alongside this update)
+- add a CI workflow example or basic `LICENSE` file
